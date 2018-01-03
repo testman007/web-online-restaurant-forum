@@ -34,6 +34,8 @@ gem 'devise'
 gem 'carrierwave'
 # gem 'ffaker' for make testing data
 gem 'ffaker'
+# gem 'kaminari' for seperate page
+gem 'kaminari'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
