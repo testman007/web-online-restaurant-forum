@@ -30,8 +30,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-# gen carrierwave for upload image to restaurant
+# gem 'arrierwave' for upload image to restaurant
 gem 'carrierwave'
+# gem 'ffaker' for make testing data
+gem 'ffaker'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
