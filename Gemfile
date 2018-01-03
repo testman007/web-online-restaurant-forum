@@ -36,6 +36,10 @@ gem 'carrierwave'
 gem 'ffaker'
 # gem 'kaminari' for seperate page
 gem 'kaminari'
+# gem bootstrap-sass for using bootstrap template
+gem 'bootstrap-sass', '~> 3.3.7'
+# gem jquery-rails for bootstrap javascript
+gem 'jquery-rails'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
