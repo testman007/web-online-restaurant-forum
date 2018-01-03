@@ -23,11 +23,11 @@ class Admin::RestaurantsController < ApplicationController
   end
 
   def show
-
+    #before_action :set_restaurant
   end
 
   def edit
-    
+    #before_action :set_restaurant
   end
 
   def destroy
@@ -39,6 +39,7 @@ class Admin::RestaurantsController < ApplicationController
   end
 
   def update
+    #before_action :set_restaurant
     if @restaurant.update(restaurant_params)
       flash[:notice] = "restaurant was successfully updated"
       redirect_to admin_restaurants_path(@restaurant)
@@ -51,10 +52,11 @@ class Admin::RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description)
+    params.require(:restaurant).permit(:name, :opening_hours, :tel, :address, :description, :image)
   end
 
   def set_restaurant
+    #before_action
     @restaurant = Restaurant.find(params[:id])    
   end
 
