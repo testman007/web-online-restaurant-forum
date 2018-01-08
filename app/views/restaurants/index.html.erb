@@ -1,1 +1,23 @@
-<h1>網站前台</h1>
+<div style="text-align:center;">
+  <h1>網站前台</h1>
+</div>
+
+<table class = "table table-striped table-condensed">
+
+  <tr>
+    <th>餐廳名稱(Name)</th>
+    <th>圖片(Picture)</th>
+  </tr>
+  
+  <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td><%= restaurant.name %></td>
+      <td><%= image_tag restaurant.image, width: '150px' %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<div class = "form container ">
+  <%= paginate @restaurants %>
+</div>
