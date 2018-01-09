@@ -26,6 +26,7 @@
       <table class = "table table-striped table-condensed">
         <tr>
           <th>圖片(Picture)</th>
+          <th>分類(Category)</th>
           <th>餐廳名稱(Name)</th>
           <th>詳細(Show)</th>
           <th>修改(Edit)</th>
@@ -35,6 +36,7 @@
         <% @restaurants.each do |restaurant| %>
           <tr>
             <td><%= image_tag restaurant.image, width: '150px' %></td>
+            <td><%= restaurant.category.name %></td>
             <td><%= restaurant.name %></td>
             <td><%= link_to 'Show', admin_restaurant_path(restaurant) %></td>
             <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></td>
