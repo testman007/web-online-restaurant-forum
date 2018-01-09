@@ -1,5 +1,5 @@
 <div class = "form container">
-  <h1><%= @restaurant.name %></h1>
+  <h1><%= @restaurant.name %> <small><%= @restaurant.category.name %></small></h1>
 
   <ul class="list-group">
     <li class="list-group-item"><strong>Opening Hours : </strong><%= @restaurant.opening_hours %></li>
