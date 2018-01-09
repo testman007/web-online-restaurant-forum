@@ -1,7 +1,29 @@
 <div class="container">
+  <div class="container table-striped table-condensed">
+    <!-- Homepage Flash Notice -->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %> alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+        <strong>Warning! </strong><%= value %>
+      </div>
+    <% end %>
+    <%= yield %>
+    <% debug(params) if Rails.env.development? %>
+  </div>
   <h1>餐廳分類總表</h1>
   <%= link_to 'Restaurants |', admin_restaurants_path %>
   <%= link_to 'Categories', admin_categories_path %>
+  <!-- 新增餐廳分類的按鈕 -->
+  <div class = "form-inline">
+    <%= form_for [:admin, @category] do |f| %>
+      <div class = "form-group">
+        <%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
+      </div>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <!-- 餐廳分類清單 -->
     <div class="row">
       <div class="col-md-12">
         <table class = "table table-striped table-bordered">
