@@ -26,6 +26,11 @@
   <%= form_for [:admin, @restaurant] do |f| %>
     <br>
     <form class="form">
+      <!-- add column category -->
+      <div class="form-group">
+        <label for="InputRestaurantCategory1">Category*</label>
+        <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: true}, {class: "form-control"} %>
+      </div>
       <div class="form-group">
         <label for="InputRestaurantName1">Name*</label>
         <%= f.text_field :name, :class=> 'form-control' %>
