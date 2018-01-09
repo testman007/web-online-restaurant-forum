@@ -1,45 +1,53 @@
 <html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+  </head>
   <body>
-    <div class="container table-striped table-condensed">
-      <br>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %> alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-          <strong>Warning! </strong><%= value %>
-        </div>
-      <% end %>
-      <%= yield %>
-      <% debug(params) if Rails.env.development? %>
-    </div>
+    <!-- Homepage Background Image -->
+    <section class="home_bg1">
+      <div class="container table-striped table-condensed">
+        <!-- Homepage Flash Notice -->
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %> alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+            <strong>Warning! </strong><%= value %>
+          </div>
+        <% end %>
+        <%= yield %>
+        <% debug(params) if Rails.env.development? %>
+      </div>
+      <!-- Homepage Head -->
+      <div style="text-align:center;">
+        <h1>網站後台</h1>
+      </div>
+      <!-- 餐廳列表 -->
+      <table class = "table table-striped table-condensed">
+        <tr>
+          <th>圖片(Picture)</th>
+          <th>餐廳名稱(Name)</th>
+          <th>詳細(Show)</th>
+          <th>修改(Edit)</th>
+          <th>刪除(Destroy)</th>
+        </tr>
+        
+        <% @restaurants.each do |restaurant| %>
+          <tr>
+            <td><%= image_tag restaurant.image, width: '150px' %></td>
+            <td><%= restaurant.name %></td>
+            <td><%= link_to 'Show', admin_restaurant_path(restaurant) %></td>
+            <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></td>
+            <td><%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm:"Are you sure?"} %></td>
+          </tr>
+        <% end %>
+      </table>
+      <!-- 新增按鈕 -->
+      <a class="btn btn-info btn-block" href= restaurants/new role="button">Add New Restaurant</a>
+      <!-- 分頁 gem -->
+      <div class = "form container ">
+        <%= paginate @restaurants %>
+      </div>
+    </section> 
   </body>
 </html>
-
-<div style="text-align:center;">
-  <h1>網站後台</h1>
-</div>
-
-<table class = "table table-striped table-condensed">
-  <tr>
-    <th>餐廳名稱(Name)</th>
-    <th>詳細(Show)</th>
-    <th>修改(Edit)</th>
-    <th>刪除(Destroy)</th>
-  </tr>
-  
-  <% @restaurants.each do |restaurant| %>
-    <tr>
-      <td><%= restaurant.name %></td>
-      <td><%= link_to 'Show', admin_restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm:"Are you sure?"} %></td>
-    </tr>
-  <% end %>
-</table>
-
-<br>
-<a class="btn btn-info btn-block" href= restaurants/new role="button">New Restaurant Button1</a>
-
-<div class = "form container ">
-  <%= paginate @restaurants %>
-</div>
