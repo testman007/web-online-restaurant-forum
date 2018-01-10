@@ -1,5 +1,5 @@
 class Admin::RestaurantsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user! => 在application_controller.rb 統一管理
   before_action :authenticate_admin
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   
