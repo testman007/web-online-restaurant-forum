@@ -1,6 +1,6 @@
 class Admin::BaseController < Admin::ApplicationController
   # 使用者登入的認證程序 
-  before_action :authenticate_user!
+  before_action :authenticate_admin
 
   private
 
