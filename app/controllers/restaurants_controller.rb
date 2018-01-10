@@ -1,6 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :authenticate_user!
-  
+  # move (使用者登入的認證程序 before_action :authenticate_user!) to applicationController
   def index
     @restaurants = Restaurant.page(params[:page]).per(10)
   end
