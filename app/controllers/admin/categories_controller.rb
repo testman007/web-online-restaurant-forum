@@ -46,7 +46,7 @@ class Admin::CategoriesController < Admin::BaseController
   private
 
   def category_params
-    @category = Category.find(params[:id])
+    params.require(:category).permit(:name)
   end
 
   def set_category
