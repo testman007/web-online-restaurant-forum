@@ -1,4 +1,4 @@
-class Admin::BaseController < Admin::ApplicationController
+class Admin::BaseController < ApplicationController
   # 使用者登入的認證程序 
   before_action :authenticate_admin
 
