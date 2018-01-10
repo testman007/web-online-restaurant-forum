@@ -22,9 +22,9 @@ class Admin::RestaurantsController < Admin::BaseController
     end
   end
 
-  def show
+  #def show
     #before_action :set_restaurant
-  end
+  #end
 
   def edit
     #before_action :set_restaurant
