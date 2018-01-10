@@ -34,12 +34,14 @@
           <tr>
             <th>#ID</th>
             <th>Name</th>
+            <th>Action</th>
           </tr>
 
           <% @categories.each do |category| %>
               <tr>
                 <th scope="row"><%= category.id %></th>
                 <td><%= category.name %></td>
+                <td><%= link_to 'Edit', admin_categories_path(id: category.id) %></td>
               </tr>
           <% end %>
 
