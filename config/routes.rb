@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :categories, only: :show
   root "restaurants#index"
 
   namespace :admin do
