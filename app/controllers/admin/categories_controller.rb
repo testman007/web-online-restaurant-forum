@@ -1,4 +1,4 @@
-class Admin::CategoriesController < ApplicationController
+class Admin::CategoriesController < Admin::BaseController
   # before_action :authenticate_user! => 在application_controller.rb 統一管理
   before_action :authenticate_admin
   before_action :set_category, only: [:update, :destroy]
@@ -45,7 +45,7 @@ class Admin::CategoriesController < ApplicationController
   #private area
   private
 
-  def set_category
+  def category_params
     @category = Category.find(params[:id])
   end
 
