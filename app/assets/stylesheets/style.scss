@@ -1,0 +1,24 @@
+.home_bg1 {
+  background-image: url(/images/restaurant_bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.restaurant-item {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
+.restaurant-item img{
+  max-height: 180px;
+  width: 100%;
+}
+
+.restaurt-item .caption{
+  padding: 10px;
+}
