@@ -1,19 +1,16 @@
-<html>
-  <body>
-    <div class="container table-striped table-condensed">
-      <br>
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %> alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span></button>
-          <strong>Warning! </strong><%= value %>
-        </div>
-      <% end %>
-      <%= yield %>
-      <% debug(params) if Rails.env.development? %>
+<div class="container table-striped table-condensed">
+  <br>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissible">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span></button>
+      <strong>Warning! </strong><%= value %>
     </div>
-  </body>
-</html>
+  <% end %>
+  <%= yield %>
+  <% debug(params) if Rails.env.development? %>
+</div>
+
 
 <br>
 <div class="form container alert alert-warning alert-dismissible" role="alert">
