@@ -7,7 +7,7 @@ class Admin::CategoriesController < Admin::BaseController
     @categories = Category.all
 
     if params[:id]
-      # before_action :set_category
+      set_category
     else
       @category = Category.new
     end
