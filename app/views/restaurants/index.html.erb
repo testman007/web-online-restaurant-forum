@@ -7,6 +7,14 @@
     <h1>網站前台</h1>
   </div>
 
+  <!-- 餐廳分類按鈕列 --> 
+  <ul class="nav nav-pills">
+    <li role="presentation" class="active"><%= link_to "全部餐廳", root_path %></li>
+    <% @categories.each do |category| %>
+      <li role="presentation"><%= link_to category.name, category_path(category) %></li>
+    <% end %>
+  </ul>
+  
   <!-- restaurants list，有多寫restaurant-item的class style -->
   <div class="row">
     <% @restaurants.each do |restaurant| %>

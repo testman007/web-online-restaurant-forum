@@ -22,3 +22,13 @@
 .restaurt-item .caption{
   padding: 10px;
 }
+
+/* views/restaurants/index.html.erb => 餐廳分類列 */
+.nav-pills-center {
+  text-align: center;
+}
+
+.nav-pills-center > li {
+  float: none;
+  display: inline-block;
+}
