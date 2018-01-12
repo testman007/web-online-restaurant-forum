@@ -1,0 +1,21 @@
+<div class = "container">
+  <div style="text-align:center;">
+    <h1>Profile頁面</h1>
+  </div>
+
+  <!-- 顯示個人資料 -->
+  <div class="container">
+    <div>
+      <%= image_tag @user.avatar, class: "img-responsive center-block", width: '400px' %>
+      <h2><strong><%= @user.name %></strong></h2>
+      <p><strong><%= @user.email %></strong></p>
+      <p><%= simple_format @user.intro %></p>
+      <!-- Edit按鈕 -->
+      <% if current_user.id == @user.id %>
+        <%= link_to 'Edit Profile', edit_user_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <hr>
+  </div>
+
+</div>
