@@ -3,7 +3,10 @@ Rails.application.routes.draw do
 
   # 前台只需要action:index和show
   # 此行程式同 resources :restaurants, except: [:new, :create, :edit, :update, :destroy]
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show] do
+    # 巢狀資源(nested resources)
+    resources :comments, only: [:create, :destroy]
+  end
   # setup category resources for public users
   resources :categories, only: :show
   root "restaurants#index"
