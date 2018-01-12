@@ -36,7 +36,7 @@
           <!-- admin 可以刪除任意評論 -->
           <% if current_user.admin? %>
             <!-- estaurant 和 Comment 是巢狀的關係，在使用 Comment 時，都需要傳入 Restaurant 物件 -->
-            <%= link_to 'Delete', restaurant_comment_path(@restaurant, comment), method: :delete %>
+            <%= link_to 'Delete', restaurant_comment_path(@restaurant, comment), method: :delete,data: {confirm:"Are you sure?"}, class: "btn btn-danger" %>
           <% end %>
         </div>
         <hr>
