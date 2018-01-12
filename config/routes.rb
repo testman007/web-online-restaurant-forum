@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     # 巢狀資源(nested resources)
     resources :comments, only: [:create, :destroy]
   end
+  
   # setup category resources for public users
   resources :categories, only: :show
   root "restaurants#index"
