@@ -10,4 +10,6 @@ class User < ApplicationRecord
     self.role == "admin"
   end
 
+  # 將user.rb Model掛載至 CarrierWave 的 Uploader
+  mount_uploader :avatar, AvatarUploader
 end
