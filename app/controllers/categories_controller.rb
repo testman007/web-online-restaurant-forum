@@ -7,4 +7,5 @@ class CategoriesController < ApplicationController
     #和該分類關聯的餐廳資料
     @restaurants = @category.restaurants.page(params[:page]).per(9)
   end
+
 end
