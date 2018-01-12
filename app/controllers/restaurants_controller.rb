@@ -7,5 +7,7 @@ class RestaurantsController < ApplicationController
   
   def show
     @restaurant = Restaurant.find(params[:id])
+    # 評論的form_for需傳入@comment
+    @comment = Comment.new
   end
 end
