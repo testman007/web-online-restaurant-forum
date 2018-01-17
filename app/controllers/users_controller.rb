@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     # before_action :set_user, only: [:show, :edit, :update]
+    @commented_restaurants = @user.restaurants
   end
 
   def edit

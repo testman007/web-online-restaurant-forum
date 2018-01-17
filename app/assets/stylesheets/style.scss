@@ -32,3 +32,18 @@
   float: none;
   display: inline-block;
 }
+
+/* Profile頁面 -> 已評論過的餐廳圖片 */
+
+.my-restaurant {
+  padding: 10px;
+  text-align: center;
+}
+
+.my-restaurant img{
+  width: auto;
+  max-width: 100%;
+  height: 100px;
+  max-height: 100%;
+  border-radius: 10px;
+}

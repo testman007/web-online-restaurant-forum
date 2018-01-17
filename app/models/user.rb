@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   # 設定Model關聯 => has_many 後面要加複數
   has_many :comments
+  # 設定與 restaurants關聯
+  has_many :restaurants, through: :comments
 
   def admin?
     self.role == "admin"

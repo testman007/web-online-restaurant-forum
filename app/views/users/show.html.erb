@@ -14,7 +14,30 @@
         <%= link_to 'Edit Profile', edit_user_path, class: "btn btn-primary" %>
       <% end %>
     </div>
-    <hr>
   </div>
+
+  <br>
+  <hr size="20px" align="center" width="100%">
+
+  <!-- 顯示已評論過的餐廳列表 -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">已評論餐廳</h3>
+    </div>
+    <div class="panel-body">
+      <% @commented_restaurants.uniq.each do |restaurant| %>
+
+        <!-- 按需求讀取資料 -->
+        <%= link_to( restaurant_path(restaurant.id) ) do %>
+          <div class="col-sm-4 col-md-2 my-restaurant">
+            <%= image_tag restaurant.image %><br>
+            <%= restaurant.name %><br>
+          </div>
+        <% end %>
+        
+      <% end %>
+    </div>
+  </div>
+
 
 </div>
