@@ -3,14 +3,25 @@
     <h1>網站前台</h1>
   </div>
 
-  <!-- 餐廳分類按鈕列 --> 
-  <ul class="nav nav-pills">
-    <li role="presentation" class="active"><%= link_to "全部餐廳", root_path %></li>
-    <% @categories.each do |category| %>
-      <li role="presentation"><%= link_to category.name, category_path(category) %></li>
-    <% end %>
-  </ul>
-  
+  <!-- 首頁 / 最新動態 標籤列 -->
+  <div>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><%= link_to "首頁", root_path %></li>
+      <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
+    </ul>
+  </div>
+
+  <br>
+
+  <!-- 餐廳分類按鈕列 -->
+  <div>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><%= link_to "全部餐廳", root_path %></li>
+      <% @categories.each do |category| %>
+        <li role="presentation"><%= link_to category.name, category_path(category) %></li>
+      <% end %>
+    </ul>
+  </div>
   <!-- restaurants list，有多寫restaurant-item的class style -->
   <%= render partial: "shared/restaurant_list" %>
 

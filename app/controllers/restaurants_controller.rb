@@ -10,4 +10,10 @@ class RestaurantsController < ApplicationController
     # 評論的form_for需傳入@comment
     @comment = Comment.new
   end
+
+  # 展示最新的10筆餐廳和10筆評論
+  def feeds
+    @recent_restaurant = Restaurant.order(created_at: :desc).limit(10)
+    @recent_comment = Comment.order(created_at: :desc).limit(10)
+  end
 end

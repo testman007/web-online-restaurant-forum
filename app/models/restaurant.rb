@@ -4,5 +4,5 @@ class Restaurant < ApplicationRecord
   #設定Model關聯 => belongs_to 後面要接單數
   belongs_to :category, optional: true
   #設定Model關聯 => has_many 後面要接複數
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end
