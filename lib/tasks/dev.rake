@@ -24,8 +24,8 @@ namespace :dev do
       User.create!(
         #email: FFaker::Internet.email(FFaker::Name.first_name),
         email: "#{user_name}@example.com",
-        password: "12345678"
-        name: "user_name"
+        password: "12345678",
+        name: "#{user_name}"
       )
     end
     puts "you have created fake users"
