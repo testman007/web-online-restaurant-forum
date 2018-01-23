@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     # 瀏覽所有餐廳的最新動態
     # 網址 Helper 使用複數的 restaurants
     collection do
-      get :feeds  
+      get :feeds 
+      #
+      get :ranking 
     end
 
     # 瀏覽個別餐廳的 Dashboard
@@ -21,6 +23,9 @@ Rails.application.routes.draw do
       # 設定 favorite 路由
       post :favorite
       post :unfavorite
+      # 設定 like 路由
+      post :like
+      post :unlike
     end
 
   end
