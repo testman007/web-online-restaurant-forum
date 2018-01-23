@@ -27,8 +27,13 @@ class RestaurantsController < ApplicationController
   # Favorite Controller Action
   def favorite
     # before_action :set_restaurant, only: [:show, :dashboard, :favorite]
-    @restaurant.favorites.create!(user: current_user)
-    redirect_back(fallback_location: root_path)
+    if @restaurant.favorites.exists?(:user_id => current_user.id)
+      # 若 table favorites已存在關聯就不再增加
+      flash.now[:info] = "You have alreday favorite this restaurant!"
+    else 
+      @restaurant.favorites.create!(user: current_user)
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def unfavorite
