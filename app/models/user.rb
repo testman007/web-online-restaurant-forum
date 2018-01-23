@@ -20,4 +20,7 @@ class User < ApplicationRecord
   #設定 favorite和restaurant的model關聯
   has_many :favorites, dependent: :destroy
   has_many :favorited_restaurants, through: :favorites, source: :restaurant
+  #設定 like和restaurant的model關聯
+  has_many :likes, dependent: :destroy
+  has_many :liked_restaurants, through: :likes, source: :restaurant
 end
