@@ -18,6 +18,9 @@ Rails.application.routes.draw do
     # 網址會帶入餐廳物件的 id，讓你可以在 Action 裡設定 
     member do
       get :dashboard
+      # 設定 favorite 路由
+      post :favorite
+      post :unfavorite
     end
 
   end
