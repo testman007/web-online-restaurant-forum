@@ -16,4 +16,8 @@ class User < ApplicationRecord
   validates_presence_of :name
   # 將user.rb Model掛載至 CarrierWave 的 Uploader
   mount_uploader :avatar, AvatarUploader
+
+  #設定 favorite和restaurant的model關聯
+  has_many :favorites, dependent: :destroy
+  has_many :favorited_restaurants, through: :favorites, source: :restaurant
 end
