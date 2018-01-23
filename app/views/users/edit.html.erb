@@ -13,7 +13,9 @@
       </div>
       <div class="form-group">
         <label for="InputUserIntro1">自我介紹</label>
-        <%= f.text_area :intro, :class=> 'form-control' %>
+        <div class="input-from-right-to-left">
+          <%= f.text_area :intro, :class=> 'form-control' %>
+        </div>
       </div>
 
       <%= f.label :avatar, "大頭照上傳" %>
