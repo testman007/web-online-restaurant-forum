@@ -1,51 +1,48 @@
 <div class = "container">
 
   <!-- 首頁 / 最新動態 標籤列 -->
-  <div>
+  <div class="row">
     <ul class="nav nav-tabs">
       <li role="presentation"><%= link_to "首頁", root_path %></li>
       <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
       <li role="presentation" class="active"><%= link_to "TOP10人氣餐廳", ranking_restaurants_path %></li>
     </ul>
   </div>
+</div>
+
   <br>
 
-<div class="container">
-  <div class="row">
- 
-    <div class="col-md-10 col-md-offset-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
 
-      <div style="text-align:Left;">
-        <h1>Top 10 人氣餐廳<small> (收藏數最高)</small></h1>
-      </div>
-
-      <hr>
-
-      <div class = "col-md-12 col-sm-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">最新餐廳</h3>
-          </div>
-          <div class="panel-body">
-            <% @recent_restaurant.each do |restaurant| %>
-              <div class="col-md-3 col-sm-4">
-                <div class="float">
-                  <%= image_tag restaurant.image, class: "img-responsive img-rounded", width: '500px'%>
-                </div>
-              </div>
-              <div class="col-md-9 col-sm-8">
-                <h4><%= link_to restaurant.name, restaurant_path(restaurant) %></h4>
-                <p><%= restaurant.category.name %></p>
-                <p><%= restaurant.description %></p>
-              </div>
-              <hr>
-            <% end %>
-          </div>
+        <div style="text-align:Left;">
+          <h1>Top 10 人氣餐廳<small> (收藏數最高)</small></h1>
         </div>
-      </div>  
 
+        <hr>
+
+        <% @restaurants.each do |restaurant| %>
+
+          <div class="ranking-item">
+            <div class="col-md-3">
+              <%= image_tag restaurant.image, class: "img-responsive center-block"  %>
+            </div>
+            <div class="col-md-9">
+              <h4>
+                <%= restaurant.name %>
+                <span class="label label-default">收藏數：<%= restaurant.favorites_count %></span>
+              </h4>
+              <p><%= truncate(restaurant.description, length: 200) %></p>
+              <div>
+                <%= link_to 'Show', restaurant_path(restaurant), class: "btn btn-primary" %>
+                <%= render partial: 'shared/favorite', locals: { restaurant: restaurant } %>
+              </div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        <% end %>   
+        
+      </div>
     </div>
   </div>
-</div>
-
-</div>

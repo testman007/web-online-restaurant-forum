@@ -26,9 +26,7 @@ class RestaurantsController < ApplicationController
 
   # 展示TOP 10人氣餐廳
   def ranking
-    @top10_restaurant = Restaurant.order(favorites_count: :desc).limit(10)
-    @recent_restaurant = Restaurant.order(created_at: :desc).limit(10)
-    @recent_comment = Comment.order(created_at: :desc).limit(10)
+    @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
   end
 
   # Favorite Controller Action
