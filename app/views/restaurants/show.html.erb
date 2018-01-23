@@ -18,7 +18,11 @@
     </div>
     <div class="col-md-8">
       <%= simple_format @restaurant.description %>
+      <!-- Dashboard按鈕 -->
       <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant.id), class: "btn btn-default" %>
+      <!-- Favorite && UnFavorite 按鈕 -->
+      <%= link_to 'Favorite', favorite_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+      <%= link_to 'Unfavorite', unfavorite_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
     </div>
 
     <div class="clearfix"></div>
