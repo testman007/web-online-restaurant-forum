@@ -26,6 +26,7 @@ class RestaurantsController < ApplicationController
 
   # 展示TOP 10人氣餐廳
   def ranking
+    @top10_restaurant = Restaurant.order(favorites_count: :desc).limit(10)
     @recent_restaurant = Restaurant.order(created_at: :desc).limit(10)
     @recent_comment = Comment.order(created_at: :desc).limit(10)
   end
@@ -38,6 +39,7 @@ class RestaurantsController < ApplicationController
       flash.now[:info] = "You have alreday favorite this restaurant!"
     else 
       @restaurant.favorites.create!(user: current_user)
+      @restaurant.count_favorites
       redirect_back(fallback_location: root_path)
     end
   end
@@ -46,6 +48,7 @@ class RestaurantsController < ApplicationController
     # before_action :set_restaurant, only: [:show, :dashboard, :favorite, :unfavorite]
     @favorites = Favorite.where(restaurant: @restaurant, user: current_user) 
     @favorites.destroy_all # @favorites 可能多於一筆因此用destroy_all
+    @restaurant.count_favorites
     redirect_back(fallback_location: root_path)
   end
 
@@ -67,6 +70,9 @@ class RestaurantsController < ApplicationController
     @likes.destroy_all # @favorites 可能多於一筆因此用destroy_all
     redirect_back(fallback_location: root_path)
   end
+
+  #
+
 
   #
   # private
