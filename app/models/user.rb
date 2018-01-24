@@ -43,5 +43,5 @@ class User < ApplicationRecord
 
   #設定 好友(friendships)和使用者(User)的 Model關聯
   has_many :friendships, dependent: :destroy
-  has_many :friend_lists, through: :friendships
+  has_many :friends, through: :friendships
 end
