@@ -23,4 +23,8 @@ class User < ApplicationRecord
   #設定 like和restaurant的model關聯
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
+
+  # 設定 user和followship的 Model關聯
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
 end
