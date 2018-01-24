@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def show
     # before_action :set_user, only: [:show, :edit, :update]
     @commented_restaurants = @user.restaurants
+    @favorited_restaurants = @user.favorited_restaurants
+    @followings = @user.followings
+    @followers = @user.followers
   end
 
   def edit

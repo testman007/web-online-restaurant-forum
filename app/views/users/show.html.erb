@@ -18,26 +18,85 @@
 
   <br>
   <hr size="20px" align="center" width="100%">
-
-  <!-- 顯示已評論過的餐廳列表 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">已評論餐廳</h3>
-    </div>
-    <div class="panel-body">
-      <% @commented_restaurants.uniq.each do |restaurant| %>
-
-        <!-- 按需求讀取資料 -->
-        <%= link_to( restaurant_path(restaurant.id) ) do %>
-          <div class="col-sm-4 col-md-2 my-restaurant">
-            <%= image_tag restaurant.image %><br>
-            <%= restaurant.name %><br>
-          </div>
+  
+  <div class="col-md-3 col-sm-4">
+    <!-- followings => @followings -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @followings.count %></strong> followings</h3>
+      </div>
+      <div class="panel-body">
+        <% @followings.uniq.each do |user| %>
+          <!-- 按需求讀取資料 -->
+          <%= link_to( user_path(user.id) ) do %>
+            <div class="col-sm-12 col-md-12 my-user">
+              <%= image_tag(user.avatar, height: 30, width: 30, class: "img-circle")  %>
+              <%= user.name %><br><hr>
+            </div>
+          <% end %>
         <% end %>
-        
-      <% end %>
+      </div>
+    </div>
+
+    <!-- followers => @followers -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @followers.count %></strong> followers</h3>
+      </div>
+      <div class="panel-body">
+        <% @followers.uniq.each do |user| %>
+          <!-- 按需求讀取資料 -->
+          <%= link_to( user_path(user.id) ) do %>
+            <div class="col-sm-12 col-md-12 my-user">
+              <%= image_tag(user.avatar, height: 30, width: 30, class: "img-circle") %>
+              <%= user.name %><br><hr>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 
+  <div class="col-md-9 col-sm-8">
+    <!-- 顯示已評論過的餐廳列表 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @commented_restaurants.count %></strong> 已評論餐廳</h3>
+      </div>
+      <div class="panel-body">
+        <% @commented_restaurants.uniq.each do |restaurant| %>
+
+          <!-- 按需求讀取資料 -->
+          <%= link_to( restaurant_path(restaurant.id) ) do %>
+            <div class="col-sm-6 col-md-4 my-restaurant">
+              <%= image_tag restaurant.image %><br>
+              <%= restaurant.name %><br>
+            </div>
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
+
+    <!-- @favorited_restaurants -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @favorited_restaurants.count %></strong> 收藏的餐廳</h3>
+      </div>
+      <div class="panel-body">
+        <% @favorited_restaurants.uniq.each do |restaurant| %>
+
+          <!-- 按需求讀取資料 -->
+          <%= link_to( restaurant_path(restaurant.id) ) do %>
+            <div class="col-sm-6 col-md-4 my-restaurant">
+              <%= image_tag restaurant.image %><br>
+              <%= restaurant.name %><br>
+            </div>
+          <% end %>
+          
+        <% end %>
+      </div>
+    </div>
+  </div>
 
 </div>
