@@ -27,4 +27,12 @@ class User < ApplicationRecord
   # 設定 user和followship的 Model關聯
   has_many :followships, dependent: :destroy
   has_many :followings, through: :followships
+
+  #
+  # 判斷是否已經追蹤user
+  #
+  def following?(user)
+    self.followings.include?(user)
+  end
+
 end
