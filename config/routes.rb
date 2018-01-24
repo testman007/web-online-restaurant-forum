@@ -35,12 +35,18 @@ Rails.application.routes.draw do
   root "restaurants#index"
 
   # => profile的路由
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update]
 
   namespace :admin do
     resources :restaurants
     resources :categories
     root "restaurants#index"
   end
+
+  #
+  # 設定「美食達人頁面」的路由
+  #
+  resources :followships, only: [:create, :destroy]
+
 
 end
