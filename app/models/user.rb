@@ -35,4 +35,10 @@ class User < ApplicationRecord
     self.followings.include?(user)
   end
 
+  #
+  # 讓 User 可以找到他的追蹤者
+  #
+  has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
+  has_many :followers, through: :inverse_followships, source: :user
+
 end
