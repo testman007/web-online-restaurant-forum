@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   # before_action :authenticate_user! => 在application_controller.rb 統一管理
   before_action :set_user, only: [:show, :edit, :update]
 
+  def index
+    @users = User.all
+  end
+
   def show
     # before_action :set_user, only: [:show, :edit, :update]
     @commented_restaurants = @user.restaurants
