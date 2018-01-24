@@ -35,7 +35,13 @@ Rails.application.routes.draw do
   root "restaurants#index"
 
   # => profile的路由
-  resources :users, only: [:index, :show, :edit, :update]
+  resources :users, only: [:index, :show, :edit, :update] do
+    member do
+      # 設定 friendship 路由
+      get :friend_list
+    end
+  end
+
 
   namespace :admin do
     resources :restaurants
@@ -48,5 +54,9 @@ Rails.application.routes.draw do
   #
   resources :followships, only: [:create, :destroy]
 
+  #
+  # 設定「好友頁面」的路由
+  #
+  resources :friendships, only: [:create, :destroy]
 
 end

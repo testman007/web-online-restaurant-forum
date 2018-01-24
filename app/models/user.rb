@@ -41,4 +41,7 @@ class User < ApplicationRecord
   has_many :inverse_followships, class_name: "Followship", foreign_key: "following_id"
   has_many :followers, through: :inverse_followships, source: :user
 
+  #設定 好友(friendships)和使用者(User)的 Model關聯
+  has_many :friendships, dependent: :destroy
+  has_many :friend_lists, through: :friendships
 end
