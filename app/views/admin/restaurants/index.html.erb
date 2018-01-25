@@ -37,7 +37,13 @@
         
         <% @restaurants.each do |restaurant| %>
           <tr>
-            <td><%= image_tag restaurant.image, width: '150px' %></td>
+            <td>
+              <% if restaurant.image? %>
+                <%= image_tag(restaurant.image, width: '150px') %>
+              <% else %>
+                <img src="http://via.placeholder.com/50x50">
+              <% end %>
+            </td>
             <td><%= restaurant.category.name %></td>
             <td><%= restaurant.name %></td>
             <td><%= link_to 'Show', admin_restaurant_path(restaurant) %></td>

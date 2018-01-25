@@ -9,8 +9,12 @@
         <% @friends.each do |friend| %>
           <!-- 按需求讀取資料 -->
           <%= link_to( user_path(friend.id) ) do %>
-                  <div class="col-sm-12 col-md-12 my-user">
-              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+            <div class="col-sm-12 col-md-12 my-user">
+              <% if friend.avatar? %>
+                <%= image_tag(friend.avatar, height: 40, width: 40, class: "img-circle") %>
+              <% else %>
+                <img src="http://via.placeholder.com/50x50" class="img-circle">
+              <% end %>
               <%= friend.name %><br><hr>
             </div>
           <% end %>
@@ -30,7 +34,11 @@
           <!-- 按需求讀取資料 -->
           <%= link_to( user_path(friend.id) ) do %>
                   <div class="col-sm-12 col-md-12 my-user">
-              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+              <% if friend.avatar? %>
+                <%= image_tag(friend.avatar, height: 40, width: 40, class: "img-circle") %>
+              <% else %>
+                <img src="http://via.placeholder.com/50x50" class="img-circle">
+              <% end %>
               <%= friend.name %><br><hr>
             </div>
           <% end %>
@@ -49,8 +57,12 @@
         <% current_user.all_friends.each do |friend| %>
           <!-- 按需求讀取資料 -->
           <%= link_to( user_path(friend.id) ) do %>
-                  <div class="col-sm-12 col-md-12 my-user">
-              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+            <div class="col-sm-12 col-md-12 my-user">
+              <% if friend.avatar? %>
+                <%= image_tag(friend.avatar, height: 40, width: 40, class: "img-circle") %>
+              <% else %>
+                <img src="http://via.placeholder.com/50x50" class="img-circle">
+              <% end %>
               <%= friend.name %><br><hr>
             </div>
           <% end %>
