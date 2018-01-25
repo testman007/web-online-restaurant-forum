@@ -1,23 +1,64 @@
 <div class="container">
-  <h1>Friendship</h1>
-</div>
 
-<div class="panel-heading">
-  <h3 class="panel-title"><strong><%= @friends.count %></strong>  個朋友</h3>
-</div>
-
-<div>
-  <% @friends.each do |friend| %>
-    <%= friend.id %><br>
-    <!-- 按需求讀取資料 -->
-    <%= link_to( user_path(friend.id) ) do %>
-            <div class="col-sm-12 col-md-12 my-user">
-        <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
-        <%= friend.name %><br><hr>
+  <div class="col-md-4 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong><%= @friends.count %></strong>  個朋友</h3>
       </div>
-    <% end %>
-    <hr>
-  <% end %>
-</div>
+      <div class="panel-body">
+        <% @friends.each do |friend| %>
+          <!-- 按需求讀取資料 -->
+          <%= link_to( user_path(friend.id) ) do %>
+                  <div class="col-sm-12 col-md-12 my-user">
+              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+              <%= friend.name %><br><hr>
+            </div>
+          <% end %>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
+  <div class="col-md-4 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>被 <%= @inverse_friends.count %></strong>  個人加為朋友</h3>
+      </div>
+      <div class="panel-body">
+        <% @inverse_friends.each do |friend| %>
+          <!-- 按需求讀取資料 -->
+          <%= link_to( user_path(friend.id) ) do %>
+                  <div class="col-sm-12 col-md-12 my-user">
+              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+              <%= friend.name %><br><hr>
+            </div>
+          <% end %>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+
+  <div class="col-md-4 col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><strong>與 <%= current_user.all_friends.count %></strong>  個人互為好友關係</h3>
+      </div>
+      <div class="panel-body">
+        <% current_user.all_friends.each do |friend| %>
+          <!-- 按需求讀取資料 -->
+          <%= link_to( user_path(friend.id) ) do %>
+                  <div class="col-sm-12 col-md-12 my-user">
+              <%= image_tag(friend.avatar, height: 30, width: 30, class: "img-circle") %>
+              <%= friend.name %><br><hr>
+            </div>
+          <% end %>
+          <hr>
+        <% end %>
+      </div>
+    </div>
+  </div>  
+
+</div>
   

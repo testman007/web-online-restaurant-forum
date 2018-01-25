@@ -1,32 +1,30 @@
 <div class = "container">
 
   <!-- 首頁 / 最新動態 標籤列 -->
-  <div class="row">
-    <ul class="nav nav-tabs">
-      <li role="presentation"><%= link_to "首頁", root_path %></li>
-      <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
-      <li role="presentation" class="active"><%= link_to "TOP10人氣餐廳", ranking_restaurants_path %></li>
-      <li role="presentation">
-         <%= link_to '美食達人', users_path %>
-      </li>
-    </ul>
+  <div class = "container">
+    <div class = "row">
+      <ul class="nav nav-tabs">
+        <li role="presentation"><%= link_to "首頁", root_path %></li>
+        <li role="presentation"><%= link_to "最新動態", feeds_restaurants_path %></li>
+        <li role="presentation" class="active"><%= link_to "TOP10人氣餐廳", ranking_restaurants_path %></li>
+        <li role="presentation">
+           <%= link_to '美食達人', users_path %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 
   <br>
-
+  <!--  -->
   <div class="container">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1">
+      <div style="text-align:Left;">
+        <h1>Top 10 人氣餐廳<small> (收藏數最高)</small></h1>
+      </div>
 
-        <div style="text-align:Left;">
-          <h1>Top 10 人氣餐廳<small> (收藏數最高)</small></h1>
-        </div>
+      <hr>
 
-        <hr>
-
-        <% @restaurants.each do |restaurant| %>
-
+      <% @restaurants.each do |restaurant| %>
           <div class="ranking-item">
             <div class="col-md-3">
               <%= image_tag restaurant.image, class: "img-responsive center-block"  %>
@@ -45,8 +43,8 @@
             <div class="clearfix"></div>
           </div>
           <hr>
-        <% end %>   
-        
-      </div>
+      <% end %>   
     </div>
   </div>
+
+</div>

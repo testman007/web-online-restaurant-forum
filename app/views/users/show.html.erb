@@ -3,7 +3,13 @@
   <!-- 顯示個人資料 -->
   <div class="container">
     <div class="col-md-3 col-sm-4">
-      <%= image_tag @user.avatar, class: "img-responsive img-rounded", width: '400px' %>
+
+      <% if @user.avatar? %>
+        <%= image_tag @user.avatar, class: "img-responsive img-rounded", width: '400px' %>
+      <% else %>
+        <img src="http://via.placeholder.com/400x400" class="img-responsive img-rounded">
+      <% end %>
+      
     </div>
     <div class="col-md-9 col-sm-8">
       <h2><strong><%= @user.name %></strong></h2>

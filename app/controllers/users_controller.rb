@@ -38,6 +38,7 @@ class UsersController < ApplicationController
     # before_action :set_user
     @followings = @user.followings
     @friends = @user.friends
+    @inverse_friends = @user.inverse_friends
   end
 
   #
