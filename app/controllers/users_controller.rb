@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # before_action :authenticate_user! => 在application_controller.rb 統一管理
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :update, :friend_list]
 
   def index
     @users = User.all
@@ -32,6 +32,12 @@ class UsersController < ApplicationController
       flash.now[:info] = "You have no right to change this page"
       render :edit
     end
+  end
+
+  def friend_list
+    # before_action :set_user
+    @followings = @user.followings
+    @friends = @user.friends
   end
 
   #

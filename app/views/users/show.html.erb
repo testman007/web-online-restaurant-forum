@@ -13,6 +13,8 @@
       <% if current_user.id == @user.id %>
         <%= link_to 'Edit Profile', edit_user_path, class: "btn btn-primary" %>
       <% end %>
+      <!-- Friendship按鈕 -->
+      <%= link_to 'Friend', friend_list_user_path, class: "btn btn-primary" %> 
     </div>
   </div>
 
