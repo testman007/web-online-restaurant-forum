@@ -44,4 +44,11 @@ class User < ApplicationRecord
   #設定 好友(friendships)和使用者(User)的 Model關聯
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
+
+  #
+  # 判斷是否已經是friend
+  #
+  def friends?(user)
+    self.friends.include?(user)
+  end
 end
